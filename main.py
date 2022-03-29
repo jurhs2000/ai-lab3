@@ -1,10 +1,14 @@
 import random
+
+from sklearn.metrics import silhouette_samples, silhouette_score
 import k_means
+import mixture_models
 from matplotlib import pyplot as plt
-from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.preprocessing import scale
 from statsmodels.graphics.gofplots import qqplot
 from sklearn.cluster import KMeans
 import pandas as pd
+import matplotlib.cm as cm
 import numpy as np
 import pyclustertend
 
@@ -98,4 +102,8 @@ if ANALISIS:
 N_CLUSTERS = 5
 
 # Clustering
+# K means
 k_means.execute_kmeans(dataset_cuantitative, N_CLUSTERS, 300)
+
+# Mixture models
+mixture_models.execute_mixture_models(dataset_cuantitative, N_CLUSTERS)
